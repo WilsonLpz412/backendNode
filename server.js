@@ -19,7 +19,7 @@ router.post('/message', function (req, res) {
   console.log(req.query);
   //console.log(req.body);
   if (req.query.error == "ok") {
-    response.error(req, res, 'Error simulado');
+    response.error(req, res, 'Error inesperado', 500, 'Error simulado');
   } else {
     //res.status(201).send([{error: '', body: 'Creado correctamente'}]);
     response.success(req, res, 'Creado correctamente', 201);
