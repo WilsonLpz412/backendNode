@@ -15,7 +15,7 @@ router.get('/message', function (req, res) {
 router.post('/message', function (req, res) {
   console.log(req.query);
   console.log(req.body);
-  res.send('Mensaje ' + req.body.text + ' añadido');
+  res.status(201).send([{error: '', body: 'Creado correctamente'}]);
 });
 //app.use('/', function (req, res) {
 //  res.send('Hola');
