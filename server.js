@@ -29,5 +29,7 @@ router.post('/message', function (req, res) {
 //  res.send('Hola');
 //});
 
+app.use('/app', express.static('public'));
+
 app.listen(3000);
 console.log('La aplicación está escuchando en http://localhost:3000');
