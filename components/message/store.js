@@ -1,4 +1,5 @@
 const db = require('mongoose');
+const { remove } = require('./model');
 const Model = require('./model');
 
 db.Promise = global.Promise;
@@ -34,10 +35,17 @@ async function updateText(id, message) {
   return newMesage;
 }
 
+function removeMessage(id) {
+  return Model.deleteOne({
+    _id: id
+  })
+}
+
 module.exports = {
   add: addMessage,
   list: getMessage,
   updateText: updateText,
+  remove: removeMessage,
   //get
   //update
   //delete
