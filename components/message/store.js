@@ -11,14 +11,16 @@ console.log('[db] Conectada con éxito');
 //.catch(e => console.error('[db] ', e));
 
 function addMessage(message) {
-  //list.push(message);
   const myMessage = new Model(message);
   myMessage.save();
 }
 
-async function getMessage() {
-  //return list;
-  const messages = await Model.find();
+async function getMessage(filterUser) {
+  let filter = {};
+  if (filterUser !== null) {
+    filter = { user: filterUser };
+  }
+  const messages = await Model.find(filter);
   return messages;
 }
 
