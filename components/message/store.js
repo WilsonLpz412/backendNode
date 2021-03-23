@@ -6,12 +6,21 @@ function addMessage(message) {
 }
 
 async function getMessage(filterUser) {
-  let filter = {};
-  if (filterUser !== null) {
-    filter = { user: filterUser };
-  }
-  const messages = await Model.find(filter);
-  return messages;
+  return new Promise((resolve, reject) => {
+    let filter = {};
+    if (filterUser !== null) {
+      filter = { user: filterUser };
+    }
+    Model.find(filter)
+      .populate('user')
+      .exec((error, populated) => {
+        if (error) {
+          return reject(error);
+        }
+
+        resolve(populated);
+      });
+  })
 }
 
 async function updateText(id, message) {

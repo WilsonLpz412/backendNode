@@ -14,9 +14,7 @@ router.get('/', function (req, res) {
     })
 });
 router.post('/', function (req, res) {
-  //console.log(req.query);
-  //console.log(req.body);
-  controller.addMessage(req.body.user, req.body.message)
+  controller.addMessage(req.body.chat, req.body.user, req.body.message)
     .then((fullMessage) => {
       response.success(req, res, fullMessage, 201);
     })
