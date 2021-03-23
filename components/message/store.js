@@ -1,5 +1,3 @@
-
-const { remove } = require('./model');
 const Model = require('./model');
 
 function addMessage(message) {
