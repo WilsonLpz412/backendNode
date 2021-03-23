@@ -1,8 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-//const router = require('./components/message/network');
+const db = require('./db');
+
 const router = require('./network/routes')
+
+db('mongodb+srv://db_user_backendNode:OdTGDijnJnFUMSkh@cluster0.63u4m.mongodb.net/db_backendNode?retryWrites=true&w=majority');
+
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
